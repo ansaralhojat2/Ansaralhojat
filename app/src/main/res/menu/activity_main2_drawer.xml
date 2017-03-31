@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_main"
+            android:icon="@drawable/ic_menu_main"
+            android:title="صفحه اصلی" />
+        <item
+            android:id="@+id/nav_lecture"
+            android:icon="@drawable/ic_menu_lecture"
+            android:title="سخنرانی" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="گالری تصاویر" />
+    </group>
+
+    <item android:title="@string/coordinate_us">
+        <menu>
+            <item
+                android:id="@+id/nav_about_us"
+                android:icon="@drawable/ic_menu_interact_us"
+                android:title="درباره ما" />
+            <item
+                android:id="@+id/nav_coordinate_channels"
+                android:icon="@drawable/ic_menu_send"
+                android:title="کانال های ارتباطی" />
+        </menu>
+    </item>
+
+</menu>

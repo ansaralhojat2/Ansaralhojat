@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">هیئت انصار الحجه</string>
+    <string name="heyat_name">هیئت انصار الحجه عجل الله تعالی فرجه</string>
+    <string name="heyat_description">متوسلین به حضرت زهرا سلام الله علیها</string>
+
+    <string name="navigation_drawer_open">باز کردن منو</string>
+    <string name="navigation_drawer_close">بستن منو</string>
+
+    <string name="coordinate_us">ارتباط با ما</string>
 </resources>
