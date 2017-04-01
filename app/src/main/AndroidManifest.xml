@@ -19,7 +19,7 @@
             android:name=".InternetNotConnectedActivity"
             android:theme="@style/Base.V7.Theme.AppCompat.Dialog" />
         <activity
-            android:name=".Main2Activity"
+            android:name=".Main2AppCompatActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -29,12 +29,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AboutUsActivity"
+            android:name=".AboutUsAppCompatActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".CoordinateChannelsActivity"
+        <activity android:name=".CoordinateChannelsAppCompatActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".LecturesActivityFragmentActivity"
+            android:label="@string/app_name"></activity>
     </application>
-
 </manifest>

@@ -16,7 +16,7 @@ import com.android.volley.toolbox.Volley;
 
 import utils.JsonUtils;
 
-public class Main2Activity extends BaseActivity {
+public class Main2AppCompatActivity extends BaseAppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

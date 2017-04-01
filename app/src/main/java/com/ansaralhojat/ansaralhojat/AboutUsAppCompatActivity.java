@@ -1,6 +1,6 @@
 package com.ansaralhojat.ansaralhojat;
 
-public class AboutUsActivity extends BaseActivity {
+public class AboutUsAppCompatActivity extends BaseAppCompatActivity {
 
     @Override
     protected int getContentView() {

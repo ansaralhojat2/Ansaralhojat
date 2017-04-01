@@ -13,7 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-public abstract class BaseActivity extends AppCompatActivity
+public abstract class BaseAppCompatActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -56,17 +56,18 @@ public abstract class BaseActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_main) {
-            Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
+            Intent intent = new Intent(getApplicationContext(), Main2AppCompatActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_lecture) {
-
+            Intent intent = new Intent(getApplicationContext(), LecturesActivityFragmentActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_about_us) {
-            Intent intent = new Intent(getApplicationContext(), AboutUsActivity.class);
+            Intent intent = new Intent(getApplicationContext(), AboutUsAppCompatActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_coordinate_channels) {
-            Intent intent = new Intent(getApplicationContext(), CoordinateChannelsActivity.class);
+            Intent intent = new Intent(getApplicationContext(), CoordinateChannelsAppCompatActivity.class);
             startActivity(intent);
         }
 
