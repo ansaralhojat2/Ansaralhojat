@@ -13,13 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:label="هیئت انصار الحجه"></activity>
-        <activity
             android:name=".InternetNotConnectedActivity"
             android:theme="@style/Base.V7.Theme.AppCompat.Dialog" />
         <activity
-            android:name=".Main2AppCompatActivity"
+            android:name=".MainAppCompatActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

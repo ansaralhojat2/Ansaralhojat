@@ -1,12 +1,7 @@
 package com.ansaralhojat.ansaralhojat;
 
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,16 +16,11 @@ import com.android.volley.toolbox.Volley;
 
 import utils.JsonUtils;
 
-public class MainActivity extends AppCompatActivity {
+public class MainAppCompatActivity extends BaseAppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (!isNetworkAvailable()) {
-            Intent intent = new Intent(getApplicationContext(), InternetNotConnectedActivity.class);
-            startActivity(intent);
-            return;
-        }
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         StringRequest requestAddress = new StringRequest(Request.Method.GET,
@@ -75,14 +65,10 @@ public class MainActivity extends AppCompatActivity {
         );
         queue.add(requestAddress);
         queue.add(requestImage);
-
-        setContentView(R.layout.activity_main);
     }
 
-    private boolean isNetworkAvailable() {
-        final ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        final NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    @Override
+    protected int getContentView() {
+        return R.layout.activity_main;
     }
-
 }
