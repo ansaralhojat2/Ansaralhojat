@@ -30,8 +30,8 @@ import DTO.LectureDTO;
 /**
  * Provide views to RecyclerView with data from mDataSet.
  */
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
-    private static final String TAG = "CustomAdapter";
+public class LectureCustomAdapter extends RecyclerView.Adapter<LectureCustomAdapter.ViewHolder> {
+    private static final String TAG = "LectureCustomAdapter";
 
     private List<LectureDTO> lectureDTOs;
 
@@ -79,7 +79,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
      *
      * @param lectureDTOs {@link LectureDTO}[] containing the data to populate views to be used by RecyclerView.
      */
-    public CustomAdapter(List<LectureDTO> lectureDTOs) {
+    public LectureCustomAdapter(List<LectureDTO> lectureDTOs) {
         this.lectureDTOs = lectureDTOs;
     }
 
@@ -89,7 +89,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view.
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.text_row_item, viewGroup, false);
+                .inflate(R.layout.lecture_row_item, viewGroup, false);
 
         return new ViewHolder(v);
     }

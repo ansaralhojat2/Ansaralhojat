@@ -26,9 +26,9 @@ import utils.JsonUtils;
 
 import static com.ansaralhojat.ansaralhojat.R.id.recyclerView;
 
-public class RecyclerViewFragment extends Fragment {
+public class LectureRecyclerViewFragment extends Fragment {
 
-    private static final String TAG = "RecyclerViewFragment";
+    private static final String TAG = "LectureRecyclerViewFragment";
     private static final String KEY_LAYOUT_MANAGER = "layoutManager";
     private static final int SPAN_COUNT = 2;
 
@@ -43,7 +43,7 @@ public class RecyclerViewFragment extends Fragment {
     protected RadioButton mGridLayoutRadioButton;
 
     protected RecyclerView mRecyclerView;
-    protected CustomAdapter mAdapter;
+    protected LectureCustomAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
     protected final List<LectureDTO> lectureDTOs = new ArrayList<>();
 
@@ -165,7 +165,7 @@ public class RecyclerViewFragment extends Fragment {
     }
 
     private void refreshView(List<LectureDTO> lectureDTOs) {
-        mAdapter = new CustomAdapter(lectureDTOs);
+        mAdapter = new LectureCustomAdapter(lectureDTOs);
         // Set as the adapter for RecyclerView.
         mRecyclerView.setAdapter(mAdapter);
         // END_INCLUDE(initializeRecyclerView)

@@ -12,7 +12,7 @@ public class LecturesActivityFragmentActivity extends BaseFragmentActivity {
 
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            RecyclerViewFragment fragment = new RecyclerViewFragment();
+            LectureRecyclerViewFragment fragment = new LectureRecyclerViewFragment();
             transaction.replace(R.id.lectures_content_fragment, fragment);
             transaction.commit();
         }
