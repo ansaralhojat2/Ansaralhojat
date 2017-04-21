@@ -1,7 +1,13 @@
 package utils;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import DTO.LectureDTO;
 
 public class JsonUtils {
 
@@ -12,8 +18,28 @@ public class JsonUtils {
             return jsonObject.get(object);
         } catch (JSONException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
+    }
+
+    public static List<LectureDTO> getObjectLectureArray(String response) {
+        try {
+            JSONArray jsonArray = new JSONArray(response);
+            List<LectureDTO> result = new ArrayList<>();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                LectureDTO lectureDTO = new LectureDTO();
+                lectureDTO.setPictureAddress(jsonObject.getJSONObject("lecturer").getString("pictureAddress"));
+                lectureDTO.setLecturer(jsonObject.getJSONObject("lecturer").getString("title"));
+                lectureDTO.setDate(jsonObject.getJSONObject("meeting").getString("date"));
+                lectureDTO.setSubject(jsonObject.getString("masterSubject"));
+                result.add(lectureDTO);
+            }
+            return result;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 }

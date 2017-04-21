@@ -17,18 +17,23 @@
 package com.ansaralhojat.ansaralhojat;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
+import DTO.LectureDTO;
+
 /**
  * Provide views to RecyclerView with data from mDataSet.
  */
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
-//    private static final String TAG = "CustomAdapter";
+    private static final String TAG = "CustomAdapter";
 
-    private String[] mDataSet;
+    private List<LectureDTO> lectureDTOs;
 
     // BEGIN_INCLUDE(recyclerViewSampleViewHolder)
 
@@ -36,7 +41,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
      * Provide a reference to the type of views that you are using (custom ViewHolder)
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView textView;
+        private final TextView textViewLecturer;
+        private final TextView textViewDate;
+        private final TextView textViewSubject;
 
         public ViewHolder(View v) {
             super(v);
@@ -44,14 +51,25 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Log.d(TAG, "Element " + getAdapterPosition() + " clicked.");
+                    for (int i = 0; i < 10000; i++)
+                        Log.d(TAG, "Element " + getAdapterPosition() + " clicked.");
                 }
             });
-            textView = (TextView) v.findViewById(R.id.textView);
+            textViewLecturer = (TextView) v.findViewById(R.id.txtView_lecturer);
+            textViewDate = (TextView) v.findViewById(R.id.txtView_date);
+            textViewSubject = (TextView) v.findViewById(R.id.txtView_subject);
         }
 
-        public TextView getTextView() {
-            return textView;
+        public TextView getLecture() {
+            return textViewLecturer;
+        }
+
+        public TextView getDate() {
+            return textViewDate;
+        }
+
+        public TextView getSubject() {
+            return textViewSubject;
         }
     }
     // END_INCLUDE(recyclerViewSampleViewHolder)
@@ -59,10 +77,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     /**
      * Initialize the dataset of the Adapter.
      *
-     * @param dataSet String[] containing the data to populate views to be used by RecyclerView.
+     * @param lectureDTOs {@link LectureDTO}[] containing the data to populate views to be used by RecyclerView.
      */
-    public CustomAdapter(String[] dataSet) {
-        mDataSet = dataSet;
+    public CustomAdapter(List<LectureDTO> lectureDTOs) {
+        this.lectureDTOs = lectureDTOs;
     }
 
     // BEGIN_INCLUDE(recyclerViewOnCreateViewHolder)
@@ -81,17 +99,19 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-//        Log.d(TAG, "Element " + position + " set.");
+        Log.d(TAG, "Element " + position + " set.");
 
         // Get element from your dataset at this position and replace the contents of the view
         // with that element
-        viewHolder.getTextView().setText(mDataSet[position]);
+        viewHolder.getLecture().setText(lectureDTOs.get(position).getLecturer());
+        viewHolder.getDate().setText(lectureDTOs.get(position).getDate());
+        viewHolder.getSubject().setText(lectureDTOs.get(position).getSubject());
     }
     // END_INCLUDE(recyclerViewOnBindViewHolder)
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return mDataSet.length;
+        return lectureDTOs.size();
     }
 }

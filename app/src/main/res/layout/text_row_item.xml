@@ -7,9 +7,67 @@
     android:layout_marginRight="@dimen/margin_medium"
     android:gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
+        android:id="@+id/lecture_lecturer_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="text row, text row, text row"/>
+        android:layout_gravity="top|center">
+
+        <TextView
+            android:id="@+id/txtView_lecturer_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="سخنران: "
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtView_lecturer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="text row, text row, text row" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lecture_subject_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/txtView_subject_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="موضوع: "
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtView_subject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="text row, text row, text row" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lecture_date_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center">
+
+        <TextView
+            android:id="@+id/txtView_date_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="تاریخ: "
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtView_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="text row, text row, text row" />
+    </LinearLayout>
+
 </FrameLayout>

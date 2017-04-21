@@ -1,6 +1,5 @@
 package com.ansaralhojat.ansaralhojat;
 
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
@@ -12,6 +11,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import DTO.LectureDTO;
+import utils.JsonUtils;
+
 import static com.ansaralhojat.ansaralhojat.R.id.recyclerView;
 
 public class RecyclerViewFragment extends Fragment {
@@ -19,7 +31,6 @@ public class RecyclerViewFragment extends Fragment {
     private static final String TAG = "RecyclerViewFragment";
     private static final String KEY_LAYOUT_MANAGER = "layoutManager";
     private static final int SPAN_COUNT = 2;
-    private static final int DATASET_COUNT = 60;
 
     private enum LayoutManagerType {
         GRID_LAYOUT_MANAGER,
@@ -34,12 +45,11 @@ public class RecyclerViewFragment extends Fragment {
     protected RecyclerView mRecyclerView;
     protected CustomAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
-    protected String[] mDataset;
+    protected final List<LectureDTO> lectureDTOs = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // Initialize dataset, this data would usually come from a local content provider or
         // remote server.
         initDataset();
@@ -48,7 +58,7 @@ public class RecyclerViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.recycler_view_frag, container, false);
+        final View rootView = inflater.inflate(R.layout.recycler_view_frag, container, false);
         rootView.setTag(TAG);
 
         // BEGIN_INCLUDE(initializeRecyclerView)
@@ -68,9 +78,7 @@ public class RecyclerViewFragment extends Fragment {
         }
         setRecyclerViewLayoutManager(mCurrentLayoutManagerType);
 
-        mAdapter = new CustomAdapter(mDataset);
-        // Set CustomAdapter as the adapter for RecyclerView.
-        mRecyclerView.setAdapter(mAdapter);
+        refreshView(lectureDTOs);
         // END_INCLUDE(initializeRecyclerView)
 
         mLinearLayoutRadioButton = (RadioButton) rootView.findViewById(R.id.linear_layout_rb);
@@ -137,10 +145,30 @@ public class RecyclerViewFragment extends Fragment {
      * Generates Strings for RecyclerView's adapter. This data would usually come
      * from a local content provider or remote server.
      */
-    private void initDataset() {
-        mDataset = new String[DATASET_COUNT];
-        for (int i = 0; i < DATASET_COUNT; i++) {
-            mDataset[i] = "اندروید خر است " + i;
-        }
+    public void initDataset() {
+        RequestQueue queue = Volley.newRequestQueue(getContext());
+        StringRequest lectures = new StringRequest(Request.Method.GET,
+                "http://ansaralhojat.com/rest/lectures",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        lectureDTOs.addAll(JsonUtils.getObjectLectureArray(response));
+                        refreshView(lectureDTOs);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                    }
+                });
+        queue.add(lectures);
     }
+
+    private void refreshView(List<LectureDTO> lectureDTOs) {
+        mAdapter = new CustomAdapter(lectureDTOs);
+        // Set as the adapter for RecyclerView.
+        mRecyclerView.setAdapter(mAdapter);
+        // END_INCLUDE(initializeRecyclerView)
+    }
+
 }
