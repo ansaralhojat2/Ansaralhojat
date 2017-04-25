@@ -10,6 +10,8 @@ public class LecturesActivityFragmentActivity extends BaseFragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lectures);
 
+        LectureCustomAdapter.context = getApplicationContext();
+        LectureCustomAdapter.lecturesActivityFragmentActivity = this;
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             LectureRecyclerViewFragment fragment = new LectureRecyclerViewFragment();

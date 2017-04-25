@@ -5,4 +5,6 @@
 
     <item name="ic_menu_interact_us" type="drawable">@android:drawable/ic_menu_report_image</item>
     <item name="ic_menu_send" type="drawable">@android:drawable/ic_menu_call</item>
+
+    <item name="ic_menu_details" type="drawable">@android:drawable/ic_menu_info_details</item>
 </resources>

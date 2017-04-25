@@ -2,10 +2,21 @@ package DTO;
 
 public class LectureDTO {
 
+    private Long id;
     private String pictureAddress;
     private String lecturer;
     private String date;
+    private String decorum;
     private String subject;
+    private String text;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getPictureAddress() {
         return pictureAddress;
@@ -31,6 +42,14 @@ public class LectureDTO {
         this.date = date;
     }
 
+    public String getDecorum() {
+        return decorum;
+    }
+
+    public void setDecorum(String decorum) {
+        this.decorum = decorum;
+    }
+
     public String getSubject() {
         return subject;
     }
@@ -39,4 +58,11 @@ public class LectureDTO {
         this.subject = subject;
     }
 
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
 }

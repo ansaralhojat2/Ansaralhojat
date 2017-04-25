@@ -16,6 +16,9 @@
 
 package com.ansaralhojat.ansaralhojat;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,9 +34,11 @@ import DTO.LectureDTO;
  * Provide views to RecyclerView with data from mDataSet.
  */
 public class LectureCustomAdapter extends RecyclerView.Adapter<LectureCustomAdapter.ViewHolder> {
+    public static Context context;
+    public static LecturesActivityFragmentActivity lecturesActivityFragmentActivity;
     private static final String TAG = "LectureCustomAdapter";
 
-    private List<LectureDTO> lectureDTOs;
+    private static List<LectureDTO> lectureDTOs;
 
     // BEGIN_INCLUDE(recyclerViewSampleViewHolder)
 
@@ -46,13 +51,15 @@ public class LectureCustomAdapter extends RecyclerView.Adapter<LectureCustomAdap
         private final TextView textViewSubject;
 
         public ViewHolder(View v) {
-            super(v);
+                super(v);
             // Define click listener for the ViewHolder's View.
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    for (int i = 0; i < 10000; i++)
-                        Log.d(TAG, "Element " + getAdapterPosition() + " clicked.");
+                    Log.d(TAG, "Element " + getAdapterPosition() + " clicked.");
+                    Intent intent = new Intent(context, LectureActivity.class);
+                    intent.putExtra("khar", lectureDTOs.get(getAdapterPosition()).getId());
+                    lecturesActivityFragmentActivity.startActivity(intent);
                 }
             });
             textViewLecturer = (TextView) v.findViewById(R.id.txtView_lecturer);
