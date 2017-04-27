@@ -21,14 +21,14 @@ import com.android.volley.toolbox.Volley;
 import java.util.ArrayList;
 import java.util.List;
 
-import DTO.LectureDTO;
+import DTO.MeetingDTO;
 import utils.JsonUtils;
 
 import static com.ansaralhojat.ansaralhojat.R.id.meeting_recyclerView;
 
-public class LectureRecyclerViewFragment extends Fragment {
+public class MeetingRecyclerViewFragment extends Fragment {
 
-    private static final String TAG = "LectureRecyclerViewFragment";
+    private static final String TAG = "MeetingRecyclerViewFragment";
     private static final String KEY_LAYOUT_MANAGER = "layoutManager";
     private static final int SPAN_COUNT = 2;
 
@@ -43,9 +43,9 @@ public class LectureRecyclerViewFragment extends Fragment {
     protected RadioButton mGridLayoutRadioButton;
 
     protected RecyclerView mRecyclerView;
-    protected LectureCustomAdapter mAdapter;
+    protected MeetingCustomAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
-    protected final List<LectureDTO> lectureDTOs = new ArrayList<>();
+    protected final List<MeetingDTO> meetingDTOs = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,7 +58,7 @@ public class LectureRecyclerViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.recycler_view_frag, container, false);
+        final View rootView = inflater.inflate(R.layout.meeting_recycler_view_frag, container, false);
         rootView.setTag(TAG);
 
         // BEGIN_INCLUDE(initializeRecyclerView)
@@ -78,7 +78,7 @@ public class LectureRecyclerViewFragment extends Fragment {
         }
         setRecyclerViewLayoutManager(mCurrentLayoutManagerType);
 
-        refreshView(lectureDTOs);
+        refreshView(meetingDTOs);
         // END_INCLUDE(initializeRecyclerView)
 
         mLinearLayoutRadioButton = (RadioButton) rootView.findViewById(R.id.meeting_linear_layout_rb);
@@ -147,13 +147,13 @@ public class LectureRecyclerViewFragment extends Fragment {
      */
     public void initDataset() {
         RequestQueue queue = Volley.newRequestQueue(getContext());
-        StringRequest lectures = new StringRequest(Request.Method.GET,
-                "http://ansaralhojat.com/rest/lectures",
+        final StringRequest meetings = new StringRequest(Request.Method.GET,
+                "http://ansaralhojat.com/rest/meetings/withPicture",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        lectureDTOs.addAll(JsonUtils.getObjectLectureArray(response));
-                        refreshView(lectureDTOs);
+                        meetingDTOs.addAll(JsonUtils.getObjectMeetingArray(response));
+                        refreshView(meetingDTOs);
                     }
                 },
                 new Response.ErrorListener() {
@@ -161,11 +161,11 @@ public class LectureRecyclerViewFragment extends Fragment {
                     public void onErrorResponse(VolleyError error) {
                     }
                 });
-        queue.add(lectures);
+        queue.add(meetings);
     }
 
-    private void refreshView(List<LectureDTO> lectureDTOs) {
-        mAdapter = new LectureCustomAdapter(lectureDTOs);
+    private void refreshView(List<MeetingDTO> meetingDTOs) {
+        mAdapter = new MeetingCustomAdapter(meetingDTOs);
         // Set as the adapter for RecyclerView.
         mRecyclerView.setAdapter(mAdapter);
         // END_INCLUDE(initializeRecyclerView)

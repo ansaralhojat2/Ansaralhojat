@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DTO.LectureDTO;
+import DTO.MeetingDTO;
 
 public class JsonUtils {
 
@@ -55,6 +56,26 @@ public class JsonUtils {
             lectureDTO.setSubject(jsonObject.getString("masterSubject"));
             lectureDTO.setText(jsonObject.isNull("text") ? "" : jsonObject.getJSONObject("text").getString("text"));
             return lectureDTO;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static List<MeetingDTO> getObjectMeetingArray(String response) {
+        try {
+            JSONArray jsonArray = new JSONArray(response);
+            List<MeetingDTO> result = new ArrayList<>();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                MeetingDTO meetingDTO = new MeetingDTO();
+                meetingDTO.setId(jsonObject.getLong("id"));
+                meetingDTO.setDate(jsonObject.getString("date"));
+                meetingDTO.setDecorum(jsonObject.getJSONObject("decorum").getString("title"));
+                meetingDTO.setPictureCount(jsonObject.getInt("pictureCount"));
+                result.add(meetingDTO);
+            }
+            return result;
         } catch (JSONException e) {
             e.printStackTrace();
             return null;

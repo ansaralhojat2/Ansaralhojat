@@ -7,7 +7,8 @@
     <string name="navigation_drawer_close">بستن منو</string>
 
     <string name="coordinate_us">ارتباط با ما</string>
-    <string name="title_activity_lecture">LectureActivity</string>
+    <string name="title_activity_lecture">سخنرانی ها</string>
+    <string name="title_activity_meeting">جلسات</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/list_item_height"
+    android:layout_marginLeft="@dimen/margin_medium"
+    android:layout_marginRight="@dimen/margin_medium"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:id="@+id/meeting_date_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center">
+
+        <TextView
+            android:id="@+id/txtView_meeting_date_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="تاریخ: "
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtView_meeting_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="text row, text row, text row" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/meting_decorum_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/meting_decorum_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="مناسبت: "
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtView_meeting_decorum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="text row, text row, text row" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/meeting_picture_count_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center">
+
+        <TextView
+            android:id="@+id/meeting_picture_count_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="تعداد عکس: "
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/meeting_picture_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="text row, text row, text row" />
+    </LinearLayout>
+
+</FrameLayout>
