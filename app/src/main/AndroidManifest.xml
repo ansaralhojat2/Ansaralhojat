@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -39,7 +40,11 @@
         <activity
             android:name=".LectureActivity"
             android:label="@string/title_activity_lecture"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MusicActivity"
+            android:label="@string/title_activity_music"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

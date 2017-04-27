@@ -1,42 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.ansaralhojat.ansaralhojat.LectureActivity"
-    tools:showIn="@layout/activity_lecture">
+    tools:context="com.ansaralhojat.ansaralhojat.MusicActivity"
+    tools:showIn="@layout/activity_music">
 
     <RelativeLayout
         android:id="@+id/widget31"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
-        <TextView
-            android:id="@+id/txtView_abstract_lecture"
+        <EditText
+            android:id="@+id/EditTextSongURL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/large_text" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:height="100dp"
+            android:ems="10"
+            android:lines="3"
+            android:maxLines="3"
+            android:minLines="1">
+
+            <requestFocus />
+
+            <requestFocus />
+        </EditText>
 
         <ImageButton
             android:id="@+id/ButtonTestPlayPause"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtView_abstract_lecture"
-            android:layout_centerInParent="true"
+            android:layout_below="@+id/EditTextSongURL"
+            android:layout_centerHorizontal="true"
             android:contentDescription="TestPlayPause"
             android:onClick="onClick"
-            android:src="@mipmap/play" />
+            android:src="@drawable/button_play" />
 
         <SeekBar
             android:id="@+id/SeekBarTestPlay"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/ButtonTestPlayPause"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/ButtonTestPlayPause" />
     </RelativeLayout>
 
-</android.support.v4.widget.NestedScrollView>
+</android.support.constraint.ConstraintLayout>
