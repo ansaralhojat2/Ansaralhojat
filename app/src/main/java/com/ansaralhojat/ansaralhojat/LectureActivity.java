@@ -12,6 +12,7 @@ import android.text.Html;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -62,6 +63,12 @@ public class LectureActivity extends AppCompatActivity implements View.OnClickLi
                                         .setAction("Action", null).show();
                             }
                         });
+                        ProgressBar progressBar = (ProgressBar) findViewById(R.id.pb_lecture);
+                        progressBar.setVisibility(View.GONE);
+                        ImageButton imageButton = (ImageButton) findViewById(R.id.ButtonTestPlayPause);
+                        imageButton.setVisibility(View.VISIBLE);
+                        SeekBar seekBar = (SeekBar) findViewById(R.id.SeekBarTestPlay);
+                        seekBar.setVisibility(View.VISIBLE);
                     }
                 },
                 new Response.ErrorListener() {

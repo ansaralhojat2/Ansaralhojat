@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 
 import com.android.volley.Request;
@@ -154,6 +155,8 @@ public class LectureRecyclerViewFragment extends Fragment {
                     public void onResponse(String response) {
                         lectureDTOs.addAll(JsonUtils.getObjectLectureArray(response));
                         refreshView(lectureDTOs);
+                        ProgressBar progressBar = (ProgressBar) getActivity().findViewById(R.id.pb_lectures);
+                        progressBar.setVisibility(View.GONE);
                     }
                 },
                 new Response.ErrorListener() {

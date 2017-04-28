@@ -14,6 +14,12 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
+        <ProgressBar
+            android:id="@+id/pb_lecture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+
         <TextView
             android:id="@+id/txtView_abstract_lecture"
             android:layout_width="wrap_content"
@@ -30,6 +36,7 @@
             android:contentDescription="TestPlayPause"
             android:layout_weight="1"
             android:onClick="onClick"
+            android:visibility="gone"
             android:src="@mipmap/play" />
 
         <SeekBar
@@ -38,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/ButtonTestPlayPause"
             android:layout_alignParentLeft="true"
+            android:visibility="gone"
             android:layout_below="@+id/ButtonTestPlayPause" />
     </RelativeLayout>
 
