@@ -1,5 +1,6 @@
 package com.ansaralhojat.ansaralhojat;
 
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.Html;
@@ -13,6 +14,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import java.util.Locale;
 
 import utils.JsonUtils;
 
