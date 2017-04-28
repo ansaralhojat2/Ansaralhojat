@@ -10,7 +10,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 
@@ -20,7 +19,6 @@ public class StreamingMp3Player extends Activity implements OnClickListener, OnT
 
     private ImageButton buttonPlayPause;
     private SeekBar seekBarProgress;
-    public EditText editTextSongURL;
 
     private MediaPlayer mediaPlayer;
     private int mediaFileLengthInMilliseconds; // this value contains the song duration in milliseconds. Look at getDuration() method in MediaPlayer class
@@ -47,8 +45,6 @@ public class StreamingMp3Player extends Activity implements OnClickListener, OnT
         seekBarProgress = (SeekBar) findViewById(R.id.SeekBarTestPlay);
         seekBarProgress.setMax(99); // It means 100% .0-99
         seekBarProgress.setOnTouchListener(this);
-        editTextSongURL = (EditText) findViewById(R.id.EditTextSongURL);
-        editTextSongURL.setText("http://dl3.downloadgozar.ir/music/95-3/04/Misagh%20Raad%20-%20Pari-%20(DownloadGozar.Ir).mp3");
 
         mediaPlayer = new MediaPlayer();
         mediaPlayer.setOnBufferingUpdateListener(this);
@@ -75,7 +71,7 @@ public class StreamingMp3Player extends Activity implements OnClickListener, OnT
         if (v.getId() == R.id.ButtonTestPlayPause) {
             /** ImageButton onClick event handler. Method which start/pause mediaplayer playing */
             try {
-                mediaPlayer.setDataSource(editTextSongURL.getText().toString()); // setup song from http://www.hrupin.com/wp-content/uploads/mp3/testsong_20_sec.mp3 URL to mediaplayer data source
+                mediaPlayer.setDataSource(""); // setup song from http://www.hrupin.com/wp-content/uploads/mp3/testsong_20_sec.mp3 URL to mediaplayer data source
                 mediaPlayer.prepare(); // you must call this method after setup the datasource in setDataSource method. After calling prepare() the instance of MediaPlayer starts load data from URL to internal buffer.
             } catch (Exception e) {
                 e.printStackTrace();
