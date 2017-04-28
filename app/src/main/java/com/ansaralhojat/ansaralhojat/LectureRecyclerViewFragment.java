@@ -24,7 +24,7 @@ import java.util.List;
 import DTO.LectureDTO;
 import utils.JsonUtils;
 
-import static com.ansaralhojat.ansaralhojat.R.id.meeting_recyclerView;
+import static com.ansaralhojat.ansaralhojat.R.id.recyclerView;
 
 public class LectureRecyclerViewFragment extends Fragment {
 
@@ -62,7 +62,7 @@ public class LectureRecyclerViewFragment extends Fragment {
         rootView.setTag(TAG);
 
         // BEGIN_INCLUDE(initializeRecyclerView)
-        mRecyclerView = (RecyclerView) rootView.findViewById(meeting_recyclerView);
+        mRecyclerView = (RecyclerView) rootView.findViewById(recyclerView);
 
         // LinearLayoutManager is used here, this will layout the elements in a similar fashion
         // to the way ListView would layout elements. The RecyclerView.LayoutManager defines how
@@ -81,7 +81,7 @@ public class LectureRecyclerViewFragment extends Fragment {
         refreshView(lectureDTOs);
         // END_INCLUDE(initializeRecyclerView)
 
-        mLinearLayoutRadioButton = (RadioButton) rootView.findViewById(R.id.meeting_linear_layout_rb);
+        mLinearLayoutRadioButton = (RadioButton) rootView.findViewById(R.id.linear_layout_rb);
         mLinearLayoutRadioButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,7 +89,7 @@ public class LectureRecyclerViewFragment extends Fragment {
             }
         });
 
-        mGridLayoutRadioButton = (RadioButton) rootView.findViewById(R.id.meeting_grid_layout_rb);
+        mGridLayoutRadioButton = (RadioButton) rootView.findViewById(R.id.grid_layout_rb);
         mGridLayoutRadioButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

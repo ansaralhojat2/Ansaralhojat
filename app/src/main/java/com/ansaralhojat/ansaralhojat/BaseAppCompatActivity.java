@@ -62,7 +62,8 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity
             Intent intent = new Intent(getApplicationContext(), LecturesActivityFragmentActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_gallery) {
-
+            Intent intent = new Intent(getApplicationContext(), MeetingsActivityFragmentActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_about_us) {
             Intent intent = new Intent(getApplicationContext(), AboutUsAppCompatActivity.class);
             startActivity(intent);
