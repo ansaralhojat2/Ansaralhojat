@@ -1,28 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layoutDirection="rtl"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl">
+
+    <ProgressBar
+        android:id="@+id/pb_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="visible" />
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/main_image"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp" />
+        android:layout_marginTop="8dp" />
 
-    <TextView
-        android:id="@+id/txtView_addressInfo"
+    <LinearLayout
+        android:id="@+id/address_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/image"
-        android:layout_centerInParent="true"
-        android:textStyle="bold" />
+        android:gravity="fill_horizontal"
+        android:layout_below="@+id/main_image"
+        android:layout_marginTop="21dp"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/txtView_addressInfo_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="مکان: "
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtView_addressInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/time_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_group"
+        android:gravity="fill_horizontal"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/txtView_timeInfo_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="زمان: "
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtView_timeInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold" />
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/family_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtView_addressInfo"
+        android:layout_below="@+id/time_group"
+        android:gravity="fill_horizontal"
         android:layout_centerHorizontal="true">
 
         <TextView
@@ -37,8 +88,6 @@
             android:id="@+id/txtView_family"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_toLeftOf="@+id/txtView_family_title"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -47,14 +96,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/family_group"
+        android:gravity="fill_horizontal"
         android:layout_centerHorizontal="true">
 
         <TextView
             android:id="@+id/txtView_parking_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtView_addressInfo"
-            android:layout_centerHorizontal="true"
             android:text="پارکینگ: "
             android:textColor="@color/colorAccent"
             android:textStyle="bold" />
@@ -63,8 +111,6 @@
             android:id="@+id/txtView_parking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_toLeftOf="@+id/txtView_parking_title"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -78,15 +124,15 @@
         android:textColor="@color/colorPrimary"
         android:textStyle="bold" />
 
-    <Button
-        android:text="اطلاعات بیشتر"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/button_selector"
+    <!--<Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/remember_qoran"
         android:layout_centerHorizontal="true"
-        android:padding="8dp"
         android:layout_marginTop="8dp"
-        android:layout_below="@+id/remember_qoran" />
+        android:background="@drawable/button_selector"
+        android:padding="8dp"
+        android:text="اطلاعات بیشتر"
+        android:textColor="#FFFFFF" />-->
 
 </RelativeLayout>

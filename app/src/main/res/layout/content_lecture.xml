@@ -19,15 +19,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
-            android:text="@string/large_text" />
+            android:text="" />
 
         <ImageButton
             android:id="@+id/ButtonTestPlayPause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtView_abstract_lecture"
-            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
             android:contentDescription="TestPlayPause"
+            android:layout_weight="1"
             android:onClick="onClick"
             android:src="@mipmap/play" />
 
