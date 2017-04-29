@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -155,8 +156,10 @@ public class LectureRecyclerViewFragment extends Fragment {
                     public void onResponse(String response) {
                         lectureDTOs.addAll(JsonUtils.getObjectLectureArray(response));
                         refreshView(lectureDTOs);
-                        ProgressBar progressBar = (ProgressBar) getActivity().findViewById(R.id.pb_lectures);
+                        final ProgressBar progressBar = (ProgressBar) getActivity().findViewById(R.id.pb_lectures);
                         progressBar.setVisibility(View.GONE);
+                        final RadioGroup radioGroup = (RadioGroup) getActivity().findViewById(R.id.rg_lectures);
+                        radioGroup.setVisibility(View.VISIBLE);
                     }
                 },
                 new Response.ErrorListener() {

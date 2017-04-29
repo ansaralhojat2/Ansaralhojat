@@ -10,13 +10,6 @@
         android:layout_height="1dp"
         android:background="@android:color/darker_gray" />
 
-    <ProgressBar
-        android:id="@+id/pb_lectures"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:visibility="visible" />
-
     <FrameLayout
         android:id="@+id/lectures_content_fragment"
         android:layout_width="match_parent"
