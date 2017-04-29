@@ -20,6 +20,7 @@
 
     <LinearLayout
         android:id="@+id/address_group"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="fill_horizontal"
@@ -46,6 +47,7 @@
 
     <LinearLayout
         android:id="@+id/time_group"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/address_group"
@@ -70,6 +72,7 @@
 
     <LinearLayout
         android:id="@+id/family_group"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/time_group"
@@ -93,6 +96,7 @@
 
     <LinearLayout
         android:id="@+id/parking_group"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/family_group"
@@ -116,6 +120,7 @@
 
     <TextView
         android:id="@+id/remember_qoran"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/parking_group"
