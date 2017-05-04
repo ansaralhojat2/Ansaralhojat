@@ -1,11 +1,16 @@
 package DTO;
 
-public class MeetingDTO {
+import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
+
+public class MeetingDTO implements Serializable {
 
     private Long id;
     private String date;
     private String decorum;
     private Integer pictureCount;
+    private List<String> addresses;
 
     public Long getId() {
         return id;
@@ -27,6 +32,14 @@ public class MeetingDTO {
         return decorum;
     }
 
+    public List<String> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<String> addresses) {
+        this.addresses = addresses;
+    }
+
     public void setDecorum(String decorum) {
         this.decorum = decorum;
     }
@@ -38,4 +51,6 @@ public class MeetingDTO {
     public void setPictureCount(Integer pictureCount) {
         this.pictureCount = pictureCount;
     }
+
+
 }

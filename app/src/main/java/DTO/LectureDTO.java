@@ -9,6 +9,7 @@ public class LectureDTO {
     private String decorum;
     private String subject;
     private String text;
+    private String mp3Url;
 
     public Long getId() {
         return id;
@@ -64,5 +65,13 @@ public class LectureDTO {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String getMp3Url() {
+        return mp3Url;
+    }
+
+    public void setMp3Url(String mp3Url) {
+        this.mp3Url = mp3Url;
     }
 }

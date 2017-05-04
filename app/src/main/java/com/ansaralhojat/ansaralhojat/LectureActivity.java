@@ -34,6 +34,7 @@ public class LectureActivity extends AppCompatActivity implements View.OnClickLi
 
     private final Handler handler = new Handler();
 
+    LectureDTO lectureDTO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class LectureActivity extends AppCompatActivity implements View.OnClickLi
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        final LectureDTO lectureDTO = JsonUtils.getObjectLecture(response);
+                        lectureDTO = JsonUtils.getObjectLecture(response);
                         final TextView txtViewAbstract = (TextView) findViewById(R.id.txtView_abstract_lecture);
                         txtViewAbstract.setText(Html.fromHtml(lectureDTO.getText()));
 
@@ -114,10 +115,16 @@ public class LectureActivity extends AppCompatActivity implements View.OnClickLi
         if (v.getId() == R.id.ButtonTestPlayPause) {
             /** ImageButton onClick event handler. Method which start/pause mediaplayer playing */
             try {
-                mediaPlayer.setDataSource("http://dl3.downloadgozar.ir/music/95-3/04/Misagh%20Raad%20-%20Pari-%20(DownloadGozar.Ir).mp3"); // setup song from http://www.hrupin.com/wp-content/uploads/mp3/testsong_20_sec.mp3 URL to mediaplayer data source
+                mediaPlayer.setDataSource(lectureDTO.getMp3Url()); // setup song from http://www.hrupin.com/wp-content/uploads/mp3/testsong_20_sec.mp3 URL to mediaplayer data source
                 mediaPlayer.prepare(); // you must call this method after setup the datasource in setDataSource method. After calling prepare() the instance of MediaPlayer starts load data from URL to internal buffer.
+                if (lectureDTO.getMp3Url() == null || lectureDTO.getMp3Url().isEmpty()) {
+                    findViewById(R.id.ButtonTestPlayPause).setVisibility(View.GONE);
+                    findViewById(R.id.SeekBarTestPlay).setVisibility(View.GONE);
+                }
             } catch (Exception e) {
                 e.printStackTrace();
+                findViewById(R.id.ButtonTestPlayPause).setVisibility(View.GONE);
+                findViewById(R.id.SeekBarTestPlay).setVisibility(View.GONE);
             }
 
             mediaFileLengthInMilliseconds = mediaPlayer.getDuration(); // gets the song length in milliseconds from URL

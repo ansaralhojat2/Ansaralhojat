@@ -17,6 +17,7 @@
 package com.ansaralhojat.ansaralhojat;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,10 +25,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import java.util.List;
 
 import DTO.LectureDTO;
 import DTO.MeetingDTO;
+import utils.JsonUtils;
 
 /**
  * Provide views to RecyclerView with data from mDataSet.
@@ -56,9 +65,24 @@ public class MeetingCustomAdapter extends RecyclerView.Adapter<MeetingCustomAdap
                 @Override
                 public void onClick(View v) {
                     Log.d(TAG, "Element " + getAdapterPosition() + " clicked.");
-//                    Intent intent = new Intent(context, LectureActivity.class);
-//                    intent.putExtra("khar", lectureDTOs.get(getAdapterPosition()).getId());
-//                    lecturesActivityFragmentActivity.startActivity(intent);
+
+                    RequestQueue queue = Volley.newRequestQueue(context);
+                    StringRequest requestAddress = new StringRequest(Request.Method.GET,
+                            "http://ansaralhojat.com/rest/pictures?meetingId=" + meetingDTOs.get(getAdapterPosition()).getId(),
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    Intent intent = new Intent(context, GalleryActivity.class);
+                                    intent.putExtra("meeting", JsonUtils.addAddressesToMeetingDto(meetingDTOs.get(getAdapterPosition()), response));
+                                    meetingsActivityFragmentActivity.startActivity(intent);
+                                }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                }
+                            });
+                    queue.add(requestAddress);
                 }
             });
             textViewMeetingDate = (TextView) v.findViewById(R.id.txtView_meeting_date);

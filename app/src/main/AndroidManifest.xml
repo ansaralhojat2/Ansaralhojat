@@ -45,6 +45,10 @@
             android:name=".MeetingsActivityFragmentActivity"
             android:label="@string/title_activity_meeting"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GalleryActivity"
+            android:label="@string/title_activity_gallery"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
