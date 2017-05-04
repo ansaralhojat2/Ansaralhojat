@@ -65,7 +65,7 @@ public class GalleryActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, meetingDTO.getDate() + ", " + meetingDTO.getDecorum() + ", نعداد عکس: " + meetingDTO.getPictureCount(), Snackbar.LENGTH_LONG)
+                Snackbar.make(view, meetingDTO.getDate() + ", " + meetingDTO.getDecorum() + ", تعداد عکس: " + meetingDTO.getPictureCount(), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
