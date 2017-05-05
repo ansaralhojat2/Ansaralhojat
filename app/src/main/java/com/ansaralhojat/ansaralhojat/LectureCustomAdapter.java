@@ -56,7 +56,7 @@ public class LectureCustomAdapter extends RecyclerView.Adapter<LectureCustomAdap
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d(TAG, "Element " + getAdapterPosition() + " clicked.");
+//                    Log.d(TAG, "Element " + getAdapterPosition() + " clicked.");
                     Intent intent = new Intent(context, LectureActivity.class);
                     intent.putExtra("khar", lectureDTOs.get(getAdapterPosition()).getId());
                     lecturesActivityFragmentActivity.startActivity(intent);
@@ -106,7 +106,7 @@ public class LectureCustomAdapter extends RecyclerView.Adapter<LectureCustomAdap
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-        Log.d(TAG, "Element " + position + " set.");
+//        Log.d(TAG, "Element " + position + " set.");
 
         // Get element from your dataset at this position and replace the contents of the view
         // with that element

@@ -1,5 +1,7 @@
 package com.ansaralhojat.ansaralhojat;
 
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.Html;
@@ -36,6 +38,15 @@ public class MainAppCompatActivity extends BaseAppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        try {
+                            final String versionName = getApplicationContext().getPackageManager().getPackageInfo(getApplicationContext().getPackageName(), 0).versionName;
+                            if (!versionName.equals(String.valueOf(JsonUtils.getObject(response, "version")))) {
+                                Intent intent = new Intent(getApplicationContext(), PleaseUpdateActivity.class);
+                                startActivity(intent);
+                            }
+                        } catch (PackageManager.NameNotFoundException e) {
+
+                        }
                         String addressInfo = (String) JsonUtils.getObject(response, "addressInfo");
                         String timeInfo = (String) JsonUtils.getObject(response, "timeInfo");
                         Boolean family = (Boolean) JsonUtils.getObject(response, "family");

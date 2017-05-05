@@ -64,7 +64,7 @@ public class MeetingCustomAdapter extends RecyclerView.Adapter<MeetingCustomAdap
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d(TAG, "Element " + getAdapterPosition() + " clicked.");
+//                    Log.d(TAG, "Element " + getAdapterPosition() + " clicked.");
 
                     RequestQueue queue = Volley.newRequestQueue(context);
                     StringRequest requestAddress = new StringRequest(Request.Method.GET,
@@ -129,7 +129,7 @@ public class MeetingCustomAdapter extends RecyclerView.Adapter<MeetingCustomAdap
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-        Log.d(TAG, "Element " + position + " set.");
+//        Log.d(TAG, "Element " + position + " set.");
 
         // Get element from your dataset at this position and replace the contents of the view
         // with that element
