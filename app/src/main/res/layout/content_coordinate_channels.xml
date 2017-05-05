@@ -45,6 +45,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="http://ansaralhojat.com"
+            android:textColorLink="@android:color/black"
+            android:autoLink="web"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -67,6 +69,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="https://t.me/ansaralhojat"
+            android:textColorLink="@android:color/black"
+            android:autoLink="web"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -89,6 +93,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="http://www.aparat.com/ansaralhojat"
+            android:textColorLink="@android:color/black"
+            android:autoLink="web"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -111,6 +117,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="https://www.instagram.com/ansaralhojat"
+            android:textColorLink="@android:color/black"
+            android:autoLink="web"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -133,7 +141,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColorLink="@android:color/black"
             android:text="09194269030"
+            android:autoLink="phone"
             android:textStyle="bold" />
     </LinearLayout>
 
