@@ -9,6 +9,7 @@
     <ImageView
         android:src="@drawable/coordinate"
         android:layout_marginTop="59dp"
+        android:layout_centerHorizontal="true"
         android:id="@+id/coordinate_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -70,8 +71,30 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/parking_instagram_container"
+        android:id="@+id/parking_aparat_container"
         android:layout_below="@+id/parking_telegram_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="fill_horizontal"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="کانال آپارات: "
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="http://www.aparat.com/ansaralhojat"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/parking_instagram_container"
+        android:layout_below="@+id/parking_aparat_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="fill_horizontal"
