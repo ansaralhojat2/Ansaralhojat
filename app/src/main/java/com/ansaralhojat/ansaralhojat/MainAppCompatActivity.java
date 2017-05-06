@@ -87,7 +87,12 @@ public class MainAppCompatActivity extends BaseAppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        progressBar.setVisibility(View.GONE);
+                        addressLayout.setVisibility(View.VISIBLE);
+                        timeLayout.setVisibility(View.VISIBLE);
+                        familyLayout.setVisibility(View.VISIBLE);
+                        parkingLayout.setVisibility(View.VISIBLE);
+                        qoran.setVisibility(View.VISIBLE);
                     }
                 }
         );
